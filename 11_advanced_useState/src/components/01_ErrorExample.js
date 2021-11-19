@@ -2,7 +2,7 @@ import React from 'react';
 
 const ErrorExample = () => {
   
-  const handleClick= () => {
+  const handleClick = () => {
     console.log(title);
     title = 'Hello people';
 
