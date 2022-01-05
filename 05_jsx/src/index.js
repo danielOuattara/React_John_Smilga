@@ -13,7 +13,7 @@ function BoookList() {
 
 const Book = () => {
   const title = "I Love You to the Moon and Back";
-  const author= "Amelia Hepworth";
+  const author = "Amelia Hepworth";
   return (
     <article className="book"> 
       <img

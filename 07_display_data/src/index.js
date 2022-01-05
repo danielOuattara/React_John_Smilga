@@ -19,11 +19,12 @@
 
 // - 1 -
 // function BoookList() {  // ??? ligne 24 ???
-//   return(
+//   return (
 //     <section className="booklist">
 //         {books.map(book => (
-//              const {img, title, author} = book;
-//             <Book imgLink={imgLink} title={title} author={author} key={title}/>))}
+//             //  const {img, title, author} = book; // doesn't work that way, need to manually destucturing
+//             <Book imgLink={book.imgLink} title={book.title} author={book.author} key={book.title}/>
+//         ))}
 //     </section>
 //   );
 // }
@@ -31,7 +32,7 @@
 // - 2 -
 //-------------------
 // function BoookList() {
-//   return(
+//   return (
 //     <section className="booklist">
 //      {books.map(book => {
 //         const {imgLink, title, author} = book;
@@ -41,10 +42,10 @@
 //   );
 // }
 
-//---------------------
+// //---------------------
 
 // const Book = (props) => {
-//   const {imgLink, title, author} =props
+//   const {imgLink, title, author} = props
 //   return (
 //     <article className="book"> 
 //       <img
@@ -57,7 +58,7 @@
 //   );
 // }
 
-// ReactDOM.render(<BoookList/>, document.getElementById('root')) 
+// ReactDOM.render(<BoookList/>, document.getElementById('root'));
 
 
 // ------------------------------------------------------------------------
@@ -79,18 +80,6 @@
 //   }
 // ];
 
-// // - 1 -
-// // function BoookList() {
-// //   return(
-// //     <section className="booklist">
-// //         {books.map(book => (
-// //             const {img, title, author} = book ;
-// //             <Book book={book} key={book.title}/>))}
-// //     </section>
-// //   );
-// // }
-
-// // - 2 -
 // //-------------------
 // function BoookList() {
 //   return(
@@ -146,10 +135,11 @@
 // ];
 
 // - 1 -
+//-------------------
 // function BoookList() {
-//   return(
+//   return (
 //     <section className="booklist">
-//         {books.map(book => (
+//         {books.map( book => (
 //             <Book book={book} key={book.title}/>))}
 //     </section>
 //   );
@@ -158,9 +148,9 @@
 // - 2 -
 //-------------------
 // function BoookList() {
-//   return(
+//   return (
 //     <section className="booklist">
-//      {books.map(book => {
+//      {books.map( book => {
 //         return <Book book={book} key={book.id}/>
 //      })}
 //     </section>
@@ -227,42 +217,28 @@ const books= [
 ];
 
 // - 1 -
-function BoookList() {
-  return(
-    <section className="booklist">
-        {books.map(book => (
-            <Book {...book} key={book.title}/>))}
-    </section>
-  );
-}
-
-// - 2 -
-//-------------------
 // function BoookList() {
 //   return(
 //     <section className="booklist">
-//      {books.map(book => {
-//         return <Book {...book} key={book.id}/>
-//      })}
+//         {books.map(book => (
+//             <Book {...book} key={book.title}/>))}
 //     </section>
 //   );
 // }
 
-const Book = ({imgLink, title, author}) => { // changed
-  return (
-    <article className="book"> 
-      <img
-        src= {imgLink}
-        alt="book description"
-      /> 
-      <h1>{title}</h1>
-      <h4>{author}</h4> 
-    </article>
+// - 2 -
+// -------------------
+function BoookList() {
+  return(
+    <section className="booklist">
+     {books.map(book => {
+        return <Book {...book} key={book.id}/>
+     })}
+    </section>
   );
 }
 
-// const Book = (props) => { // changed
-// const {imgLink, title, author} = props
+// const Book = ({imgLink, title, author}) => { // changed
 //   return (
 //     <article className="book"> 
 //       <img
@@ -274,5 +250,19 @@ const Book = ({imgLink, title, author}) => { // changed
 //     </article>
 //   );
 // }
+
+const Book = (props) => { // changed
+const {imgLink, title, author} = props
+  return (
+    <article className="book"> 
+      <img
+        src= {imgLink}
+        alt="book description"
+      /> 
+      <h1>{title}</h1>
+      <h4>{author}</h4> 
+    </article>
+  );
+}
 
 ReactDOM.render(<BoookList/>, document.getElementById('root'));

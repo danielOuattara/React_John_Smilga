@@ -1,5 +1,5 @@
 
-export const books= [
+export const books = [
   {
     id: 1,
     imgLink: "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",

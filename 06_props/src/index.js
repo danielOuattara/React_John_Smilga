@@ -3,14 +3,15 @@
 // import './index.css';
 
 // function BoookList() {
-//   return(
+//   return (
 //     <section className="booklist">
-//       <Book title= {title} />
-//       <Book author= {author}/>
+//       <Book title={title} />
+//       <Book author={author}/>
 
 //     </section>
 //   );
 // }
+
 // const title = "I Love You to the Moon and Back";
 // const author = "Amelia Hepworth";
 // const imgLink = "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg"
@@ -22,15 +23,13 @@
 //         src= {imgLink}
 //         alt="book description"
 //       /> 
-
 //       <h1>{props.title}</h1>
 //       <h4>{props.author}</h4> 
-
 //     </article>
 //   );
 // }
 
-// ReactDOM.render(<BoookList/>, document.getElementById('root')) 
+// ReactDOM.render(<BoookList/>, document.getElementById('root'));
 
 
 // ------------------------------------------------------------------------------
@@ -55,10 +54,8 @@
 // function BoookList() {
 //   return(
 //     <section className="booklist">
-//       <Book title= {firstBook.title} imgLink={firstBook.imgLink} author={firstBook.author} />
-//       <Book title= {secondBook.title} imgLink={secondBook.imgLink} author={secondBook.author} />
-  
-
+//       <Book title={firstBook.title} imgLink={firstBook.imgLink} author={firstBook.author} />
+//       <Book title={secondBook.title} imgLink={secondBook.imgLink} author={secondBook.author} />
 //     </section>
 //   );
 // }
@@ -72,7 +69,6 @@
 //       /> 
 //       <h1>{props.title}</h1>
 //       <h4>{props.author}</h4> 
-
 //     </article>
 //   );
 // }
@@ -81,7 +77,7 @@
 
 
 // ------------------------------------------------------------------------------
-// destructure props
+// // destructure props
 
 // import React from 'react';
 // import ReactDOM from 'react-dom';
@@ -109,16 +105,15 @@
 // }
 
 // const Book = (props) => {
-//   const { imgLink, title, author} = props;
+//   const { imgLink, title, author } = props;
 //   return (
 //     <article className="book"> 
 //       <img
-//         src= {imgLink}
+//         src={imgLink}
 //         alt="book description"
 //       /> 
 //       <h1>{title}</h1>
 //       <h4>{author}</h4> 
-
 //     </article>
 //   );
 // }
@@ -133,32 +128,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const firstBook= {
+const firstBook = {
   imgLink: "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
   title:"I Love You to the Moon and Back",
   author: "Amelia Hepworth",
-}
-const secondBook= {
+};
+const secondBook = {
   imgLink: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL320_.jpg",
   title:"Our Class is a family",
   author: "Shannon Olsen",
-}
+};
 
 
 function BoookList() {
-  return(
+  return (
     <section className="booklist">
-      
-      <Book title= {firstBook.title} imgLink={firstBook.imgLink} author={firstBook.author} />
       <Book 
-        title= {secondBook.title} 
+        title={firstBook.title} 
+        imgLink={firstBook.imgLink} 
+        author={firstBook.author}>
+          <h3>Description of the book</h3>
+
+        
+      </Book>
+      <Book 
+        title={secondBook.title} 
         imgLink={secondBook.imgLink} 
         author={secondBook.author}> 
-        <p> Teachers do so much more than just teach academics. 
-            They build a sense of community within their classrooms, 
-            creating a home away from home where they make their 
-            students feel safe, included, and loved.
-        </p>
+          <p> Teachers do so much more than just teach academics. 
+              They build a sense of community within their classrooms, 
+              creating a home away from home where they make their 
+              students feel safe, included, and loved.
+          </p>
       </Book>
     </section>
   );
@@ -173,9 +174,11 @@ const Book = ({imgLink, title, author, children}) => {
       /> 
       <h1>{title}</h1>
       <h4>{author}</h4> 
-
+      {children}
     </article>
   );
 }
 
-ReactDOM.render(<BoookList/>, document.getElementById('root')) 
+
+ReactDOM.render(<BoookList/>, document.getElementById('root')) ;
+//--------------------------------------------------------------------

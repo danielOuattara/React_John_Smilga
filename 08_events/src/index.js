@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const books= [
+const books = [
   {
     id: 1,
     imgLink: "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
@@ -27,7 +27,7 @@ const books= [
 function BoookList() {
   return(
     <section className="booklist">
-     {books.map(book => {
+     {books.map( book => {
         return <Book {...book} key={book.id}/>
      })}
     </section>
@@ -38,23 +38,14 @@ const Book = ({imgLink, title, author, id}) => {
 
   // attribute, eventHandler
   const clickHandler = (event) => {
-    console.log(event)
-    console.log(event.target)
-    alert('Clikckedon book Id: ' + id )
-
+    console.log(event);
+    console.log(event.target);
+    alert('Clikcked On Book Id: ' + id );
   }
 
   return (
-    <article 
-      className="book" 
-      onMouseOver={() =>{
-        console.log(title);
-      }}> 
-      
-      <img
-        src= {imgLink}
-        alt="book description"
-      /> 
+    <article className="book" onMouseOver={() => console.log(title)}> 
+      <img src={imgLink} alt="book description"/> 
       <h1>{title}</h1>
       <h4>{author}</h4> 
       <button type="button" onClick={clickHandler}> Click Example 1</button>
@@ -62,7 +53,5 @@ const Book = ({imgLink, title, author, id}) => {
     </article>
   );
 }
-
-
 
 ReactDOM.render(<BoookList/>, document.getElementById('root'));

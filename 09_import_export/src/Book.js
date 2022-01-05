@@ -5,7 +5,7 @@ const Book = ({imgLink, title, author, id}) => {
   const clickHandler = (event) => {
     console.log(event)
     console.log(event.target)
-    alert('Clikckedon book Id: ' + id )
+    alert('Clikcked On Book Id: ' + id )
   }
 
   return (
