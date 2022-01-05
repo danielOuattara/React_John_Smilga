@@ -252,7 +252,7 @@ function BoookList() {
 // }
 
 const Book = (props) => { // changed
-const {imgLink, title, author} = props
+  const { imgLink, title, author } = props;
   return (
     <article className="book"> 
       <img

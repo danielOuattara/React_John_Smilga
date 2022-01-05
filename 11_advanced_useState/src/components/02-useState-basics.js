@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 const UseStateBasics = () => {
   const [ title, setTitle] = useState('random title');
@@ -8,14 +8,10 @@ const UseStateBasics = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <h2>{title}</h2>
-      <button 
-        type="button"
-        className="btn"
-        onClick={handleClick}>change title
-      </button>
-    </React.Fragment>
+      <button type="button" className="btn" onClick={handleClick}>switch title </button>
+    </>
   ) 
 };
 

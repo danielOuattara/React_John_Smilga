@@ -13,7 +13,6 @@ function BoookList() {
       <Book/>
       <Book/>
       <Book/>
-
     </section>
   );
 }
@@ -28,7 +27,6 @@ const Book = () => {
   );
 }
 
-
 const Image = () => (
   <img
     src="https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg" 
@@ -39,4 +37,4 @@ const Title = () => <h1>I Love You to the Moon and Back</h1>
 
 const Author = () => <h4 style={{color:'#617d98', fontSize:'0.75rem', margin:'0.25rem'}}>Amelia Hepworth</h4> 
 
-ReactDOM.render(<BoookList/>, document.getElementById('root')) 
+ReactDOM.render(<BoookList/>, document.getElementById('root'));

@@ -27,10 +27,7 @@ const UseStateObject = () => {
           change message
         </button>
     </>
-  )
+  );
 };  
-
-
-
 
 export default UseStateObject;

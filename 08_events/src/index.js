@@ -25,7 +25,7 @@ const books = [
 ];
 
 function BoookList() {
-  return(
+  return (
     <section className="booklist">
      {books.map( book => {
         return <Book {...book} key={book.id}/>
@@ -34,7 +34,7 @@ function BoookList() {
   );
 }
 
-const Book = ({imgLink, title, author, id}) => { 
+const Book = ({ imgLink, title, author, id }) => { 
 
   // attribute, eventHandler
   const clickHandler = (event) => {

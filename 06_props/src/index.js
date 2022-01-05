@@ -149,7 +149,6 @@ function BoookList() {
         author={firstBook.author}>
           <h3>Description of the book</h3>
 
-        
       </Book>
       <Book 
         title={secondBook.title} 
