@@ -12,16 +12,16 @@ const fetchUserThenCatch = () => {
     fetch(url)
     .then(res =>  {
       if(res.ok) {
-        return  res.json();
+        return res.json();
       } 
       else {
         setIsError(true);
         setIsLoading(false);
+        throw Error(res.statusText)
       }
-      
     })
-    .then(data => {
-       setUser(data.login);
+    .then(user => {
+       setUser(user.login);
        setIsLoading(false);
        setIsError(false);
     })

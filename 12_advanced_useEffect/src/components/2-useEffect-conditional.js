@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react';
       }
     }, [input])
 */
-const UseEffectBasics = () => {
+const UseEffectConditional = () => {
 
   const [value, setValue] = useState(0);
 
@@ -20,16 +20,12 @@ const UseEffectBasics = () => {
   //   console.log(value);
   // });
 
-  // useEffect(()=> {
-  //   console.log("useEffect");
-  //   console.log(value);
-  //   document.title = ` artilces : ${value}`
-  // }, []);
-
   useEffect(()=> {
     console.log("useEffect");
     console.log(value);
-  }, [value]);
+    document.title = value === 0 ? "No Message" : `New Message (${value})`;
+  });
+
 
   console.log("useEffect component");  
 
@@ -42,4 +38,4 @@ const UseEffectBasics = () => {
   );
 };
 
-export default UseEffectBasics;
+export default UseEffectConditional;

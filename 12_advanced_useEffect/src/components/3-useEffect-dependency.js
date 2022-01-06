@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from 'react';
-// by default useEffect() runs after every re-render
-// cleanup function
-// second parameter
 
-/*
-    useEffect( () => {
-      effect
-      return () => {
-        cleanup
-      }
-    }, [input])
-*/
-const UseEffectBasics = () => {
+const UseEffectDependency = () => {
 
   const [value, setValue] = useState(0);
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   console.log(value);
-  // });
 
   // useEffect(()=> {
   //   console.log("useEffect");
   //   console.log(value);
-  //   document.title = ` artilces : ${value}`
+  //   document.title = value === 0 ? "No Message" : `New Message (${value})`;
   // }, []);
 
   useEffect(()=> {
     console.log("useEffect");
     console.log(value);
+    document.title = value === 0 ? "No Message" : `New Message (${value})`;
   }, [value]);
+
+  useEffect(() => {
+    console.log("Hello World Again !");
+  }, []);
+
 
   console.log("useEffect component");  
 
@@ -42,4 +32,4 @@ const UseEffectBasics = () => {
   );
 };
 
-export default UseEffectBasics;
+export default UseEffectDependency;

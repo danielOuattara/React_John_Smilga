@@ -4,21 +4,25 @@ import React, { useState } from 'react';
 
 const ShortCircuit = () => {
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState(null);
 
   const firstValue = text || 'hello world';
   const secondValue = text && 'hello world';
 
   return (
     <>
-      {/* {if(true){ console.log("Hello")}}: if not allowed in JSX */}
+      {/* {if(true){ console.log("Hello")}}: // if not allowed in JSX */}
+{/* 
+      <h2> first value = {firstValue}</h2>
+      <h2> second value = {secondValue}</h2> */}
 
-      {/* <h1> value = {firstValue}</h1>
-      <h1> value = {secondValue}</h1> */}
-
-      <h1> || : {text || "John Doe"}</h1>
- 
-      <h1> &amp;&amp; : {text && "John Doe"}</h1>
+      <h1> || --&gt; {text || "John Doe"}</h1>
+      <hr />
+      <h1> || --&gt; {!text || "John Doe"}</h1>
+      <hr />
+      <h1> &amp;&amp; --&gt; {text && "John Doe"}</h1>
+      <hr />
+      <h1> &amp;&amp; --&gt; {!text && "John Doe"}</h1>
     </>
   );
 };
