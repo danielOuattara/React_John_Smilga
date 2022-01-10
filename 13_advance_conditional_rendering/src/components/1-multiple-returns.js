@@ -49,9 +49,10 @@ const fetchUserAsyncAwaitTryCatch = async () => {
     setIsError(false);
     setIsLoading(false);
 
-  } catch (err) {
-    console.log(err.message);
+  } catch (error) {
     setIsError(true);
+    setIsLoading(false)
+    return error;
   }
 }
 
