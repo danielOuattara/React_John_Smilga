@@ -1,43 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
 // by default useEffect() runs after every re-render
 // cleanup function
 // second parameter
 
-/*
+/*--------------------------------------
     useEffect( () => {
       effect
       return () => {
         cleanup
       }
     }, [input])
-*/
+-----------------------------------------*/
+
 const UseEffectBasics = () => {
 
   const [value, setValue] = useState(0);
+
+  //-------------------------------------------------
 
   // useEffect(() => {
   //   console.log("useEffect");
   //   console.log(value);
   // });
 
-  // useEffect(()=> {
-  //   console.log("useEffect");
-  //   console.log(value);
-  //   document.title = ` artilces : ${value}`
-  // }, []);
-
+  //-------------------------------------------------
+ 
   useEffect(()=> {
     console.log("useEffect");
     console.log(value);
-  }, [value]);
-
-  console.log("useEffect component");  
+    document.title = ` artilces : ${value}`
+  });
+  
+  //-------------------------------------------------
 
   return (
     <>
       <h2>useEffect Basics</h2>
       <h3>{value}</h3>
-      <button  className="btn" onClick={()=> setValue(value + 1)}> Increment</button>
+      <button className="btn" onClick={() => setValue(value + 1)}> Increment</button>
     </>
   );
 };

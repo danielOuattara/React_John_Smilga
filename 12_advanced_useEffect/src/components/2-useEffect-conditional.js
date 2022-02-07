@@ -15,20 +15,36 @@ const UseEffectConditional = () => {
 
   const [value, setValue] = useState(0);
 
+  //--------------------------------------------------------------
+  
   // useEffect(() => {
   //   console.log("useEffect");
   //   console.log(value);
   // });
 
-  useEffect(()=> {
-    console.log("useEffect");
-    console.log(value);
-    document.title = value === 0 ? "No Message" : `New Message (${value})`;
-  });
+  //--------------------------------------------------------------
+  
+  // useEffect(()=> {
+  //   console.log("useEffect");
+  //   console.log(value);
+  //   document.title = value === 0 ? "No Message" : `New Message (${value})`;
+  // });
 
+  //--------------------------------------------------------------
 
-  console.log("useEffect component");  
+  // useEffect(()=> {
+  //   console.log("useEffect");
+  //   console.log(value);
+  //   if(value === 1) {
+  //     document.title = `New Message (${value})`
+  //   }
+  //   if(value > 1) {
+  //     document.title = `New Messages (${value})`
+  //   }
+  // });
 
+  //--------------------------------------------------------------
+  
   return (
     <>
       <h2>useEffect Basics</h2>

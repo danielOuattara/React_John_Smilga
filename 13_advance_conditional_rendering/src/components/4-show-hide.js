@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+
+//----------------------------------------------------------------
 const ShowHide = () => {
-  const[ show, setShow] = useState(false)
+  const[ show, setShow ] = useState(false)
   return (
     <>
       <h2>show/hide</h2>
@@ -11,6 +13,8 @@ const ShowHide = () => {
   );
 };
 
+
+//----------------------------------------------------------------
 const Item = () => {
 
   const [size, setSize] = useState(window.innerWidth);

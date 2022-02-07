@@ -3,15 +3,32 @@ import { data } from './../data';
 
 const UseStateArray = () => {
   const [ users, setUsers] = useState(data);
+
+  // const handleRemoveUser = (id) => {
+  //   let newUsers = users.filter(user => user.id !== id);
+  //   setUsers(newUsers);
+  // };
+
+
+  // const handleRemoveUser = (id) => {
+  //   setUsers( (users) => {
+  //     let newUsers = users.filter(user => user.id !== id);
+  //     return newUsers
+  //   })
+  // };
+
   const handleRemoveUser = (id) => {
-    let newUsers = users.filter(user => user.id !== id);
-    setUsers(newUsers);
+    setTimeout( () => {
+      setUsers( (users) => {
+        let newUsers = users.filter(user => user.id !== id);
+        return newUsers
+      })}, 1000)
   };
 
   return (
     <>
       <h2>useState array example</h2>
-      {users.map( (user) => {
+      {users.map( user => {
         const { id, name } = user;
         return (
           <div className='item' key={id}>
@@ -30,6 +47,7 @@ const UseStateArray = () => {
         <button 
           type="button"
           className="btn"
+          style={{color: "red" }}
           onClick={() => setUsers([])}> Remove All Users
         </button> 
       }

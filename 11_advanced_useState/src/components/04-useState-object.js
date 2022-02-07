@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const UseStateObject = () => {
 
-  const [ user, setUser] = useState({
+const UseStateObject = () => {
+  const [ user, setUser ] = useState({
       name: "Daniel",
       age: "37",
       message:"Hello World"
@@ -13,8 +13,7 @@ const UseStateObject = () => {
   // const [message,setMessage] = useState('random message');
 
   const changeMessage = () => {
-    setUser(
-      {...user, message: "Hello React!"})
+    setUser({ ...user, message: "Hello React!" });
   }
 
   return (

@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 const MultipleInputs = () => {
 
   const [person, setPerson] = useState({ firstName: "", email: "",  age: "" });
-
   const [people, setPeople] = useState([]);
 
   const handleChange = (event) => {
+    console.log(event)
     const name = event.target.name;
     const value = event.target.value;
     setPerson({...person, [name]: value});  // gathering person data from inputs 
@@ -22,7 +22,7 @@ const MultipleInputs = () => {
         age: person.age
       };
 
-      setPeople((people) => {  // adding new person to people
+      setPeople( people => {  // adding new person to people
         return [...people, newPerson];
       });
 
@@ -69,7 +69,9 @@ const MultipleInputs = () => {
           </div>
           <button type='submit' onClick={handleSubmit} >add person</button>
         </form>
-        {people.map((person) => {  // redering each person from the list of people
+
+        {/* listing people */}
+        {people.map( person => {  
           const { id, firstName, email, age } = person;
           return (
             <div className='item' key={id}>

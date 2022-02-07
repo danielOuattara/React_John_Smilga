@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const TernaryOperator = () => {
 
   const [text, setText] = useState(null);
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const firstValue = text || 'hello world';
   const secondValue = text && 'hello world';
@@ -26,16 +26,14 @@ const TernaryOperator = () => {
       <button className='btn' onClick={handleToggleError}>Toogle Error</button>
       <h1> {text && "Hello World"}</h1>
 
-      <hr />
-
-      <button className='btn' onClick={() => setIsError(!isError)}>Toogle Error</button>
+      <hr /><br /><br />
       {/* <h1> {!isError && "Hello Me"}</h1>
       <h1> {isError || "Hello You"}</h1> */}
-      <hr />
 
       {
-        isError ? ( <p> there is an error </p>) : (<p>there is no error</p > )
+        isError ? ( <h3> there is an error </h3>) : (<h3>there is no error</h3 > )
       }
+      <button className='btn' onClick={() => setIsError(!isError)}>Toogle Error</button>
 
     </>
   );

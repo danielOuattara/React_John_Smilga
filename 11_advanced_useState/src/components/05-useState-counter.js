@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const UseStateCounter = () => {
 
+const UseStateCounter = () => {
   const [value, setValue] = useState(0);
-  
+
   const resetHandler = () => {
     setValue(0);
   };
@@ -11,7 +11,7 @@ const UseStateCounter = () => {
   const asyncIncrease = () => {
     setTimeout( () => {
       // setValue( value + 1)  // Kills the Async; not good!
-      setValue( (prevState) => { //Better than previous
+      setValue( prevState => { //Better than previous
         return prevState + 1;
       })
     }, 2000)
@@ -19,9 +19,7 @@ const UseStateCounter = () => {
 
   const asyncDecrease = () => {
     setTimeout( () => {
-      setValue( (prevState) => {
-        return prevState - 1;
-      })
+      setValue( prevState => prevState - 1)
     }, 2000)
   };
 

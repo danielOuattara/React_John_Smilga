@@ -9,14 +9,14 @@ const ControlledInputs = () => {
 
   const [ name, setName ] = useState("");
   const [ email, setEmail ] = useState("");
-  const [people, setPeople ]  = useState([]);
+  const [ people, setPeople ]  = useState([]);
   
   const handleSubmit = (event) => {
     event.preventDefault();
     if(name && email) {
       const newPerson =  { id: new Date().getTime() , name, email };
-      setPeople( (people) => {
-        return [...people, newPerson]
+      setPeople( (oldPeople) => {
+        return [...oldPeople, newPerson]
       });
       setName("");
       setEmail("");
@@ -52,6 +52,7 @@ const ControlledInputs = () => {
            <button type='submit'>add person</button>
          </form>
 
+         {/* listing people */}
          { people.map((person) => {
            const { id, name, email } = person
            return (

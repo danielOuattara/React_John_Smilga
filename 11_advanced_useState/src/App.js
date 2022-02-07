@@ -1,9 +1,9 @@
 import React from 'react';
 // import ErrorExample from './components/01_ErrorExample';
 // import UseStateBascis from './components/02-useState-basics'
-// import UseStateArray from './components/03-useState-array';
+import UseStateArray from './components/03-useState-array';
 // import UseStateObject from './components/04-useState-object';
-import UseStateCounter from './components/05-useState-counter';
+// import UseStateCounter from './components/05-useState-counter';
 
 
 function App() {
@@ -11,11 +11,9 @@ function App() {
     <div className='container'>
       {/* <ErrorExample/> */}
       {/* <UseStateBascis /> */}
-      {/* <UseStateArray /> */}
+      <UseStateArray />
       {/* <UseStateObject /> */}
-      <UseStateCounter />
-      
-
+      {/* <UseStateCounter /> */}
     </div>
   )
 }
