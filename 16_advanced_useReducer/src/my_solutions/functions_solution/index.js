@@ -57,11 +57,10 @@ const Index = () => {
         <button type="submit">submit</button>
       </form>
       {state.people.map((person) => {
-        const { id, name } = person;
         return (
-          <div key={id} className="item">
-            <h4>{name}</h4>
-            <button onClick={() => removePerson(id)}> remove </button>
+          <div key={person.id} className="item">
+            <h4>{person.name}</h4>
+            <button onClick={() => removePerson(person.id)}> remove </button>
           </div>
         );
       })}

@@ -1,3 +1,5 @@
+
+/* if...else */
 // const reducer = (state, action) => {
 //     if (action.type === "ADD_ITEM") {
 //       return {
@@ -32,6 +34,10 @@
 
 // export default reducer;
 
+
+//-------------------------------------------------------
+/* switch
+------------ */
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":

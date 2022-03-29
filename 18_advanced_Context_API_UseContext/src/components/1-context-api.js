@@ -3,16 +3,18 @@ import { data } from "../data";
 // more components
 // fix - context api, redux (for more complex cases)
 
+// 2 components: Provider & Consumer before
 const PerSonContext = React.createContext();
-// 2 components: Provider & Consumer
 
 const ContextAPI = () => {
   const [people, setPeople] = useState(data);
+
   const removePerson = (id) => {
     setPeople((people) => {
       return people.filter((person) => person.id !== id);
     });
   };
+
   return (
     <PerSonContext.Provider value={{ removePerson, msg: "hello", people }}>
       <h3>prop drilling</h3>

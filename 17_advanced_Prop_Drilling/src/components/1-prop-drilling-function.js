@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { data } from "./../data";
+import { data } from "../data";
 // more components
 // fix - context api, redux (for more complex cases)
 
-const PropDrilling = () => {
+const PropDrillingClass = () => {
   const [people, setPeople] = useState(data);
 
   const removePerson = (id) => {
@@ -16,7 +16,7 @@ const PropDrilling = () => {
     </section>
   );
 };
-export default PropDrilling;
+export default PropDrillingClass;
 
 const List = ({ people, removePerson }) => {
   return (
