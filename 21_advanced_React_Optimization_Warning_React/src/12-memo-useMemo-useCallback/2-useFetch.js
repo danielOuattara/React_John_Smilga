@@ -30,6 +30,7 @@ export const useFetch = (url) => {
 
   //-------------------------------------------------
 
+  // using useCallback
   const getProducts = useCallback(async () => {
     const response = await fetch(url);
     const products = await response.json();
