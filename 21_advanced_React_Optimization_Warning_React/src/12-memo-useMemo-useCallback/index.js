@@ -1,9 +1,25 @@
-import React, { useState, useEffect, useCallback, memo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { useFetch } from "./2-useFetch";
+
+// every time props or state changes, component re-renders
 
 const url = "https://course-api.com/javascript-store-products";
 
-// every time props or state changes, component re-renders
+// React.useMemo: from here.
+// Without useMemo, console.log() is called at each render
+// With useMemo, console.log() is not called at each render
+const higestPriceFinder = (data) => {
+  console.log('Calling higestPriceFinder ')
+  return (
+    data.reduce((total, item) => {
+      const price = item.fields.price;
+      if (price > total) {
+        total = price;
+      }
+      return total;
+    }, 0) / 100
+  );
+};
 
 // useEffect is not necesseray to see the optimization problem
 // a console.log() or console.count is enough
@@ -15,11 +31,16 @@ const Index = () => {
 
   const [cart, setCart] = useState(0);
 
+  // using React.useMemo
+  const mostExpensiveItem =  useMemo(() => higestPriceFinder(products), [products])
+
+
   // const addToCart =  () => {
   //   setCart(cart + 1);
   // };
 
   // useCallback act on function. If function argument is changed
+  // useCallback recreates the funciton form scratch
   const addToCart = useCallback(() => {
     setCart(cart + 1);
   }, [cart]);
@@ -32,6 +53,8 @@ const Index = () => {
       </button>
 
       <h2 style={{ margin: "2rem" }}>cart: {cart}</h2>
+      {/* <h3> Most expensive item price (no useMemo) : ${higestPriceFinder(products)}</h3> */}
+      <h3> Most expensive item price (with useMemo) : ${mostExpensiveItem}</h3>
 
       <hr />
 
@@ -42,6 +65,8 @@ const Index = () => {
 
 //-------------------------------------------------------------
 
+// React.memo check for prop change.
+// If no change made it blocks re-rendering
 const BigList = memo(({ products, addToCart }) => {
   useEffect(() => {
     console.log("Big List call");
