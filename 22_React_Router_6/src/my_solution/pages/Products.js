@@ -9,7 +9,8 @@ const Products = () => {
         return (
           <article key={item.id}>
             <h5>{item.name}</h5>
-            <Link to={`/products/${item.id}`}>more info</Link>
+            <Link to={`/products/${item.id}`} className="btn">more info</Link>
+            <br /><br />
           </article>
         );
       })}

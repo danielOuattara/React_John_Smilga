@@ -25,7 +25,7 @@ const SingleProduct = () => {
     <section className="section product">
       <img src={image} alt={name} />
       <h5>{name}</h5>
-      <Link to="/products">back To Products</Link>
+      <Link to="/products" className="btn"> back To Products </Link>
     </section>
   );
 };

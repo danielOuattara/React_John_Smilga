@@ -11,13 +11,17 @@ const Navbar = () => {
       >
         Home
       </NavLink>
+
       <NavLink
         to="/about"
         className={({ isActive }) => (isActive ? "link active" : "link")}
       >
         About
       </NavLink>
+
       <NavLink to="/products">Products</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
     </nav>
   );
 };
