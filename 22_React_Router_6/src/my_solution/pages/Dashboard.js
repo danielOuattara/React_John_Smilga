@@ -1,3 +1,5 @@
+
+
 const Dashboard = ({user}) => {
   return (
     <section className='section'>

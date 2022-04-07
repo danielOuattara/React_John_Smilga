@@ -39,7 +39,7 @@ const Index = () => {
   //   setCart(cart + 1);
   // };
 
-  // useCallback act on function. If function argument is changed
+  // useCallback acts on function. If function argument is changed
   // useCallback recreates the funciton form scratch
   const addToCart = useCallback(() => {
     setCart(cart + 1);
@@ -93,10 +93,10 @@ const BigList = memo(({ products, addToCart }) => {
 //--------------------------------------------------------------
 
 // using a React.memo again here is not useful to block re-render
-// Note: the re-render 'origin is nto outiside of BigList. It is
+// Note: the re-render 'origin is not outiside of BigList. It is
 // the button trigger located inside SingleProduct; so React.memo
 // is not efficient for internal re-render triggering action
-// For this kind of situation, using useCall is the solution
+// For this kind of situation, using useCallback is the solution
 // for optimizing the app. See at top
 
 const SingleProduct = ({ fields, addToCart }) => {
