@@ -1,7 +1,9 @@
 import Title from "./components/Title";
-import FirstRequest from "./examples/1-first-request"
+// import FirstRequest from "./examples/1-first-request";
 // import Headers from "./examples/2-headers";
-import PostRequest from "./examples/3-post-request";
+// import PostRequest from "./examples/3-post-request";
+import GlobalInstance from "./examples/4-global-instance";
+import "./axios/global"
 
 function App() {
   return (
@@ -9,7 +11,8 @@ function App() {
       <Title />
       {/* <FirstRequest /> */}
       {/* <Headers /> */}
-      <PostRequest />
+      {/* <PostRequest /> */}
+      <GlobalInstance />
     </main>
   );
 }

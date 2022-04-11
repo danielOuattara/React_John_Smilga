@@ -13,7 +13,7 @@ const PostRequest = () => {
       const res = await axios.post(url, { name, email }, {});
       console.log(res.data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response);
     }
   };
 

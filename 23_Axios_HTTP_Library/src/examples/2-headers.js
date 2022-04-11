@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const url = "https://icanhazdadjoke.com/A";
+const url = "https://icanhazdadjoke.com/";
 // Accept : 'application/json'
 
 const Headers = () => {
@@ -17,8 +17,8 @@ const Headers = () => {
 
       setJoke(data.joke);
     } catch (error) {
-      console.log(error.message)
-      setJoke(error.message)
+      console.log(error.message);
+      setJoke(error.message);
     }
   };
 
