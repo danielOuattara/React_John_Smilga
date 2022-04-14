@@ -6,7 +6,8 @@ import Title from "./components/Title";
 // import GlobalInstance from "./examples/4-global-instance";
 // import "./axios/global"
 
-import CustomInstance from "./examples/5-custom-instance";
+// import CustomInstance from "./examples/5-custom-instance";
+import Interceptors from "./examples/6-interceptors";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <Headers /> */}
       {/* <PostRequest /> */}
       {/* <GlobalInstance /> */}
-      <CustomInstance />
+      {/* <CustomInstance /> */}
+      <Interceptors />
     </main>
   );
 }
