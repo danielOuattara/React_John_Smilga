@@ -45,7 +45,7 @@ function App() {
           <Route path="about" element={<About />} />
 
           <Route path="products" element={<SharedProducts />}>
-            <Route index element={<Products/>}  />
+            <Route index element={<Products />} />
             <Route path=":productId" element={<SingleProduct />} />
           </Route>
 
