@@ -1,5 +1,4 @@
-
-import {render} from 'react-dom';
+import { render } from "react-dom";
 
 /*
 JSX Rules: 
@@ -10,40 +9,40 @@ JSX Rules:
 - close every element
 - formatting
 
-//---------------------------------
+--------------------------------
 
 - Nested Component
 - React tools
-*/ 
+*/
 
 function Greeting() {
-  return(
+  return (
     <div>
       <Name />
       <Message />
     </div>
-  )
+  );
 }
 
-const GreetingAgain = () => {
-  return <h1>Hello </h1>
-}
-
-const Name = () => {
-  return (<p>John Doe</p>);
-}
+const Name = () => <p>John Doe</p>;
 
 const Message = () => {
-  return (<p>Hello John</p>);
-}
+  return <p>Hello John</p>;
+};
 
+const GreetingAgain = () => {
+  return <h1>Hello </h1>;
+};
 
 // ReactDOM.render(<div>
 //       <Greeting/>
 //       <GreetingAgain/>
 //   </div>, document.getElementById('root')) ;
 
-render(<div>
-      <Greeting/>
-      <GreetingAgain/>
-  </div>, document.getElementById('root')) ;
+render(
+  <div>
+    <Greeting />
+    <GreetingAgain />
+  </div>,
+  document.getElementById("root")
+);

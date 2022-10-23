@@ -20,7 +20,7 @@ body {
 
 @media screen and (min-width: 768px) {
   .booklist {
-    grid-template-columns: repeat(3,1fr)
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 /* @media screen and (max-width: 768px) {
@@ -45,15 +45,15 @@ body {
 }
 
 .book h4 {
-  color:#617d98; 
-  font-size:0.75rem;
-  margin:0.25rem
+  color: #617d98;
+  font-size: 0.75rem;
+  margin: 0.25rem;
 }
 
 .book p {
-  margin-top: 0.5rem
+  margin-top: 0.5rem;
 }
 .book img {
   max-width: 100%;
-  margin: auto
+  margin: auto;
 }
