@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 /* 
 useEffect(() => {
-  effect
+  effect()
   return () => {
     cleanup
   }
@@ -14,13 +14,12 @@ useEffect(() => {
 // second argument
 
 const UseEffectCleanup = () => {
-
-  const [size, setSize]= useState(window.innerWidth);
+  const [size, setSize] = useState(window.innerWidth);
   console.log(size);
 
   const handleSizeCheck = () => {
     setSize(window.innerWidth);
-  }
+  };
 
   // useEffect(() => {
   //   window.addEventListener('resize', handleSizeCheck);
@@ -28,19 +27,20 @@ const UseEffectCleanup = () => {
   // });
 
   useEffect(() => {
-    console.log('useEffect');
-    window.addEventListener('resize', handleSizeCheck);
-    return () => { // clean up function
+    console.log("useEffect");
+    window.addEventListener("resize", handleSizeCheck);
+    return () => {
+      // clean up function
       console.log("cleanup");
-      window.removeEventListener('resize', handleSizeCheck)
-      console.log('---------------')
-    }
+      window.removeEventListener("resize", handleSizeCheck);
+      console.log("---------------");
+    };
   });
 
-   return (
+  return (
     <>
       <h2>useEffect Clean up function</h2>
-      <h3>window size: {size} px</h3>    
+      <h3>window size: {size} px</h3>
     </>
   );
 };
