@@ -1,83 +1,80 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const MultipleInputs = () => {
-
-  const [person, setPerson] = useState({ firstName: "", email: "",  age: "" });
+  const [newPerson, setNewPerson] = useState({
+    firstName: "",
+    email: "",
+    age: "",
+  });
   const [people, setPeople] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
-    console.log(event)
+    console.log(event.target);
     const name = event.target.name;
     const value = event.target.value;
-    setPerson({...person, [name]: value});  // gathering person data from inputs 
+    setNewPerson({ ...newPerson, [name]: value }); // gathering newPerson data from inputs
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (person.firstName && person.email && person.age) {
-      const newPerson = {   // generating newPerson from person object
-        id: new Date().getTime(),
-        firstName: person.firstName, 
-        email: person.email,
-        age: person.age
-      };
-
-      setPeople( people => {  // adding new person to people
-        return [...people, newPerson];
-      });
-
-      setPerson({ firstName: "", email: "", age: "" });  // emptying form items
-
+    if (newPerson.firstName && newPerson.email && newPerson.age) {
+      const newPersonData = { ...newPerson, id: new Date().getTime() };
+      setPeople((people) => [...people, newPersonData]);
+      setNewPerson({ firstName: "", email: "", age: "" });
+      setError(null);
     } else {
-      console.log('empty values');
+      console.log("empty values");
+      setError("Error: all input are required");
     }
-    
-  }
+  };
   return (
     <>
       <article>
-        <form className='form'>
-          <div className='form-control'>
-            <label htmlFor='firstName'>Name : </label>
+        <form className="form-multiple">
+          <div className="form-control">
+            <label htmlFor="firstName">Name : </label>
             <input
-              type='text'
-              id='firstName'
-              name='firstName'
-              value={person.firstName}
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={newPerson.firstName}
               onChange={handleChange}
             />
           </div>
-          <div className='form-control'>
-            <label htmlFor='email'>Email : </label>
+          <div className="form-control">
+            <label htmlFor="email">Email : </label>
             <input
-              type='email'
-              id='email'
-              name='email'
-              value={person.email}
+              type="email"
+              id="email"
+              name="email"
+              value={newPerson.email}
               onChange={handleChange}
             />
           </div>
-          <div className='form-control'>
-            <label htmlFor='age'>Age : </label>
+          <div className="form-control">
+            <label htmlFor="age">Age : </label>
             <input
-              type='text'
-              id='age'
-              name='age'
-              value={person.age}
+              type="text"
+              id="age"
+              name="age"
+              value={newPerson.age}
               onChange={handleChange}
             />
           </div>
-          <button type='submit' onClick={handleSubmit} >add person</button>
+          <button type="submit" onClick={handleSubmit}>
+            add newPerson
+          </button>
+          {error && <h4 className="error-msg">{error}</h4>}
         </form>
 
         {/* listing people */}
-        {people.map( person => {  
-          const { id, firstName, email, age } = person;
+        {people.map((person) => {
           return (
-            <div className='item' key={id}>
-              <h4>{firstName}</h4>
-              <p>{email}</p>
-              <p>{age}</p>
+            <div className="item" key={person.id}>
+              <h4>{person.firstName}</h4>
+              <p>{person.email}</p>
+              <p>{person.age}</p>
             </div>
           );
         })}

@@ -1,11 +1,11 @@
-import React from 'react';
-import ControlledInputs from './components/1-controlled-inputs';
-import MultipleInputs from './components/2-multiple-inputs';
+import React from "react";
+import ControlledInputs from "./components/1-controlled-inputs";
+import MultipleInputs from "./components/2-multiple-inputs";
 
 function App() {
   return (
-    <div className='container'>
-      <ControlledInputs />      
+    <div className="container">
+      <ControlledInputs />
       <MultipleInputs />
     </div>
   );
