@@ -1,4 +1,3 @@
-import React from "react";
 // import MultipleReturns from "./components/1-multiple-returns";
 // import ShortCircuit from "./components/2-short-circuit";
 // import TernaryOperator from "./components/3-ternary-operator";
