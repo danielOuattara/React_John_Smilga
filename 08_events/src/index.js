@@ -11,15 +11,13 @@ const books = [
   },
   {
     id: 2,
-    imgLink:
-      "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL320_.jpg",
+    imgLink: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL320_.jpg",
     title: "Our Class is a family",
     author: "Shannon Olsen",
   },
   {
     id: 3,
-    imgLink:
-      "https://m.media-amazon.com/images/I/61VudanhEXL._AC_UL320_.jpg",
+    imgLink: "https://m.media-amazon.com/images/I/61VudanhEXL._AC_UL320_.jpg",
     title: "The Vanishing Half",
     author: "Brit Bennett",
   },
