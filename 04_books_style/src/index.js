@@ -11,15 +11,6 @@ function BoookList() {
       <Book />
       <Book />
       <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
     </section>
   );
 }
