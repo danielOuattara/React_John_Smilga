@@ -13,14 +13,7 @@ const UseEffectFetchData = () => {
       .catch((error) => console.log(error.message));
   };
 
-  // const fetchUsersAsync = async () => {
-  //   const res = await fetch(url);
-  //   const data = await res.json();
-  //   setUsers(data);
-  // };
-
-  //----------------------------------------------
-  const fetchUsersAsync2 = async () => {
+  const fetchUsersAsync = async () => {
     try {
       const res = await fetch(url);
       const data = await res.json();
@@ -31,50 +24,42 @@ const UseEffectFetchData = () => {
   };
 
   useEffect(() => fetchUsersThenCatch(), []);
-  // useEffect(() => fetchUsersAsync(), []);
-  useEffect(() => fetchUsersAsync2(), []);
+  useEffect(() => fetchUsersAsync(), []);
 
   return (
     <>
-      <h2>fetch 1 data</h2>
-      <ul className="users">
-        {users.map((user) => {
-          const { id, login, avatar_url: image, html_url } = user;
-          return (
-            <li key={id}>
-              <img src={image} alt={"avatar of " + id} />
-              <div>
-                <h4>{login}</h4>
-                <a href={html_url} target="_blank" rel="noreferrer">
-                  {" "}
-                  Link to {login}
-                </a>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-      <hr /> {/* ------------------------------------------------ */}
-      <h2>fetch 2 data</h2>
-      <ul className="users">
-        {users2.map((user) => {
-          const { id, login, avatar_url: image, html_url } = user;
-          return (
-            <li key={id}>
-              <img src={image} alt={"avatar of " + id} />
-              <div>
-                <h4>{login}</h4>
-                <a href={html_url} target="_blank" rel="noreferrer">
-                  {" "}
-                  Link to {login}
-                </a>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      <UserList users={users} mode="Promises Then/Catch" />
+      <UserList users={users2} mode="Async/Await Try/Catch" />
     </>
   );
 };
 
 export default UseEffectFetchData;
+
+function UserList(props) {
+  return (
+    <>
+      <h2>fetch data {props.mode}</h2>
+      <ul className="users">
+        {props.users.map((user) => (
+          <UserListItem {...user} />
+        ))}
+      </ul>
+    </>
+  );
+}
+
+function UserListItem(props) {
+  return (
+    <li key={props.id}>
+      <img src={props.avatar_url} alt={props.id} />
+      <div>
+        <h4>{props.login}</h4>
+        <a href={props.html_url} target="_blank" rel="noreferrer">
+          {" "}
+          Link to {props.login}
+        </a>
+      </div>
+    </li>
+  );
+}
