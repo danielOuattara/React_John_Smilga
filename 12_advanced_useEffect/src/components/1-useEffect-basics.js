@@ -16,22 +16,11 @@ import { useState, useEffect } from "react";
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
 
-  //-------------------------------------------------
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   console.log(value);
-  // });
-
-  //-------------------------------------------------
-
   useEffect(() => {
     console.log("useEffect");
     console.log(value);
-    document.title = ` artilces : ${value}`;
+    document.title = ` articles : ${value}`;
   });
-
-  //-------------------------------------------------
 
   return (
     <>

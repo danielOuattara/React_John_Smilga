@@ -15,15 +15,6 @@ import React, { useState, useEffect } from "react";
 const UseEffectConditional = () => {
   const [value, setValue] = useState(0);
 
-  //--------------------------------------------------------------
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   console.log(value);
-  // });
-
-  //--------------------------------------------------------------
-
   // useEffect(()=> {
   //   console.log("useEffect");
   //   console.log(value);
@@ -33,11 +24,19 @@ const UseEffectConditional = () => {
   useEffect(() => {
     console.log("useEffect");
     console.log(value);
-    value === 0
-      ? (document.title = ` No article `)
-      : value === 1
-      ? (document.title = ` article : ${value}`)
-      : (document.title = ` articles : ${value}`);
+
+    document.title =
+      value === 0
+        ? "No article"
+        : value === 1
+        ? `article : ${value}`
+        : `articles : ${value}`;
+
+    // value === 0
+    //   ? (document.title = ` No article `)
+    //   : value === 1
+    //   ? (document.title = ` article : ${value}`)
+    //   : (document.title = ` articles : ${value}`);
   });
 
   //---------

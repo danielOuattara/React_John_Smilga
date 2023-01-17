@@ -21,11 +21,6 @@ const UseEffectCleanup = () => {
     setSize(window.innerWidth);
   };
 
-  // useEffect(() => {
-  //   window.addEventListener('resize', handleSizeCheck);
-  //   console.log("Window resized !")
-  // });
-
   useEffect(() => {
     console.log("useEffect");
     window.addEventListener("resize", handleSizeCheck);

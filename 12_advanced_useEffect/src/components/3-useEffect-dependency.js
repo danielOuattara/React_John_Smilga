@@ -4,10 +4,10 @@ const UseEffectDependency = () => {
   const [value, setValue] = useState(0);
   const [personNumber, setPersonNumber] = useState(0);
 
-  const handleClick = () => {
-    setValue(value + 1);
-    setPersonNumber(personNumber + 1);
-  };
+  // const handleClick = () => {
+  //   // setValue(value + 1);
+  //   setPersonNumber(personNumber + 1);
+  // };
 
   //--------------------------------------------------------------
 
@@ -44,9 +44,14 @@ const UseEffectDependency = () => {
     <>
       <h2>useEffect Basics</h2>
       <h3>{value}</h3>
-      <button className="btn" onClick={handleClick}>
-        {" "}
-        Increment
+      <button className="btn" onClick={() => setValue(value + 1)}>
+        Increment Value
+      </button>
+      <br />
+      <br />
+      <h3>personNumber value : {personNumber}</h3>
+      <button className="btn" onClick={() => setPersonNumber(value + 1)}>
+        Increment personNumber
       </button>
     </>
   );
