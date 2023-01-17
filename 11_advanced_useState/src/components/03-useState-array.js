@@ -10,14 +10,14 @@ const UseStateArray = () => {
   // };
 
   // const handleRemoveUser = (id) => {
-  //   setUsers((users) => {
+  //   setUsers(() => {
   //     let newUsers = users.filter((user) => user.id !== id);
   //     return newUsers;
   //   });
   // };
 
   // const handleRemoveUser = (id) => {
-  //   setUsers((users) => {
+  //   setUsers(() => {
   //     return users.filter((user) => user.id !== id);
   //   });
   // };
@@ -31,7 +31,7 @@ const UseStateArray = () => {
 
   // const handleRemoveUser = (id) => {
   //   setTimeout(() => {
-  //     setUsers((users) => {
+  //     setUsers(() => {
   //       let newUsers = users.filter((user) => user.id !== id);
   //       return newUsers;
   //     });
@@ -40,7 +40,7 @@ const UseStateArray = () => {
 
   // const handleRemoveUser = (id) => {
   //   setTimeout(() => {
-  //     setUsers((users) => {
+  //     setUsers(() => {
   //       return users.filter((user) => user.id !== id);
   //     });
   //   }, 500);
@@ -49,13 +49,14 @@ const UseStateArray = () => {
   return (
     <>
       <h2>useState array example</h2>
+
       {users.map((user) => {
-        const { id, name } = user;
         return (
-          <div className="item" key={id}>
-            <h4>{name}</h4>
-            <button onClick={() => handleRemoveUser(id)}>
-              Remove {name.replace(name[0], name[0].toUpperCase())}
+          <div className="item" key={user.id}>
+            <h4>{user.name}</h4>
+            <button onClick={() => handleRemoveUser(user.id)}>
+              Remove{" "}
+              {user.name.replace(user.name[0], user.name[0].toUpperCase())}
             </button>
           </div>
         );
@@ -64,24 +65,13 @@ const UseStateArray = () => {
       {/* {users.map( (user) => (<h3 key={user.id}>{user.name}</h3>))}; */}
 
       {users.length > 0 && (
-        <button
-          type="button"
-          className="btn"
-          style={{ color: "red" }}
-          onClick={() => setUsers([])}
-        >
-          {" "}
+        <button type="button" className="btn" onClick={() => setUsers([])}>
           Remove All Users
         </button>
       )}
+
       {users.length === 0 && (
-        <button
-          type="button"
-          className="btn"
-          style={{ color: "green" }}
-          onClick={() => setUsers(data)}
-        >
-          {" "}
+        <button type="button" className="btn" onClick={() => setUsers(data)}>
           Reload
         </button>
       )}
