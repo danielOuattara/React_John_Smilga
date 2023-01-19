@@ -15,13 +15,13 @@ const ShortCircuit = () => {
       <h2> first value = {firstValue}</h2>
       <h2> second value = {secondValue}</h2> */}
 
-      <h1> || --&gt; {text || "John Doe"}</h1>
+      <h3> test :1 {text || "John Doe 1"}</h3>
       <hr />
-      <h1> || --&gt; {!text || "John Doe"}</h1>
+      <h3>test :2 {!text || "Jana Doe 2"}</h3>
       <hr />
-      <h1> &amp;&amp; --&gt; {text && "John Doe"}</h1>
+      <h3> test :3 {text && "Samual Doe 3"}</h3>
       <hr />
-      <h1> &amp;&amp; --&gt; {!text && "John Doe"}</h1>
+      <h3>test :4 {!text && "Lina Doe 4"}</h3>
     </>
   );
 };

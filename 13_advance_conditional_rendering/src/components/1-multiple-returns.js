@@ -4,8 +4,8 @@ const MultipleReturns = () => {
   const url = "https://api.github.com/users/DanielOuattara";
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+  const [user, setUser] = useState({});
 
   //------
   // const person = {
@@ -14,8 +14,8 @@ const MultipleReturns = () => {
   // };
   // console.log(person);
   // console.log(Object.entries(person));
-
   //------
+
   const fetchUserThenCatch = () => {
     fetch(url)
       .then((res) => {
@@ -35,7 +35,6 @@ const MultipleReturns = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        setIsError(true);
       });
   };
 
@@ -91,7 +90,7 @@ const MultipleReturns = () => {
         } else {
           setIsError(true);
           setIsLoading(false);
-          setErrorMessage(res.statusText);
+          setErrorMessage(`${res.statusText} ${res.status}`);
           throw Error(res.statusText);
         }
       })
@@ -111,18 +110,20 @@ const MultipleReturns = () => {
   }
 
   if (isError) {
-    return <div>Error: {errorMessage}</div>;
+    return <h2>Error: {errorMessage}</h2>;
   }
 
   return (
     <>
+      <h2>User infos :</h2>
       <ul>
-        {Object.entries(user).map((item, index) => {
-          const [key, value] = item;
+        {console.log(Object.entries(user))}
+        {Object.entries(user).map((subArray) => {
+          const [key, value] = subArray;
           return (
             <li
               style={{ textAlign: "left", margin: "10px 0 10px 10px" }}
-              key={index}
+              key={key}
             >
               {" "}
               <b>{key}</b> : {value}

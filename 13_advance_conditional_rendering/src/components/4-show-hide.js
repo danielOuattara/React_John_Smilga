@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 //----------------------------------------------------------------
 const ShowHide = () => {
@@ -32,8 +32,8 @@ const Item = () => {
 
   return (
     <div>
-      <h1>window</h1>
-      <h2>size :{size}</h2>
+      <h2>window</h2>
+      <h3>size :{size}</h3>
     </div>
   );
 };
