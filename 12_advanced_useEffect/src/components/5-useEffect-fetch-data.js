@@ -42,7 +42,7 @@ function UserList(props) {
       <h2>fetch data {props.mode}</h2>
       <ul className="users">
         {props.users.map((user) => (
-          <UserListItem {...user} />
+          <UserListItem {...user} key={user.id} />
         ))}
       </ul>
     </>
@@ -51,7 +51,7 @@ function UserList(props) {
 
 function UserListItem(props) {
   return (
-    <li key={props.id}>
+    <li>
       <img src={props.avatar_url} alt={props.id} />
       <div>
         <h4>{props.login}</h4>
