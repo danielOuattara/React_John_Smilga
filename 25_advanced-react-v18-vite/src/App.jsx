@@ -7,8 +7,6 @@
 // import UseStateObject from "./tutorial/01-useState/04-useState-object";
 // import UseStateGotcha from "./tutorial/01-useState/05-useState-gotcha";
 
-//
-
 /* UseEffect 
 --------------*/
 // import CodeExample from "./tutorial/02-useEffect/01-code-example";
@@ -64,8 +62,14 @@
 // import ToggleExample from "./tutorial/08-custom-hooks/01-toggle";
 // import FetchData from "./tutorial/08-custom-hooks/02-fetch-data";
 
-/* context -- */
-import Navbar from "./tutorial/09-context-api/context/Navbar";
+/* context 
+-------------- */
+// import Navbar from "./tutorial/09-context-api/context/Navbar";
+
+/* useReducer 
+---------------*/
+// import ReducerBasics from "./tutorial/10-useReducer/01-useReducer";
+import AppUseReducer from "./tutorial/10-useReducer/useReducer_split_import_export/AppUseReducer";
 
 //============================================
 function App() {
@@ -122,7 +126,11 @@ function App() {
       {/* <FetchData /> */}
 
       {/* ---------------------------------- context API */}
-      <Navbar />
+      {/* <Navbar /> */}
+
+      {/* ---------------------------------- useReducer */}
+      {/* <ReducerBasics /> */}
+      <AppUseReducer />
     </div>
   );
 }
