@@ -69,8 +69,16 @@
 /* useReducer 
 ---------------*/
 // import ReducerBasics from "./tutorial/10-useReducer/01-useReducer";
-import AppUseReducer from "./tutorial/10-useReducer/useReducer_split_import_export/AppUseReducer";
+// import AppUseReducer from "./tutorial/10-useReducer/useReducer_split_import_export/AppUseReducer";
 
+/* Performance
+--------------- */
+// import LowerState from "./tutorial/11-performance/01-lower-state/index";
+// import LowerStateChallenge from "./tutorial/11-performance/02-lower-state-challenge";
+// import LowerStateHook from "./tutorial/11-performance/03-hooks";
+// import FetchData from "./tutorial/11-performance/03-hooks/fetch-data";
+
+import LastReact from "./tutorial/11-performance/04-react-18/index";
 //============================================
 function App() {
   return (
@@ -130,7 +138,14 @@ function App() {
 
       {/* ---------------------------------- useReducer */}
       {/* <ReducerBasics /> */}
-      <AppUseReducer />
+      {/* <AppUseReducer /> */}
+
+      {/* ---------------------------------- performance */}
+      {/* <LowerState /> */}
+      {/* <LowerStateChallenge /> */}
+      {/* <LowerStateHook /> */}
+      {/* <FetchData /> */}
+      <LastReact />
     </div>
   );
 }
