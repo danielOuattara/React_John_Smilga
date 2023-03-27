@@ -8,8 +8,8 @@ const url = "https://course-api.com/javascript-store-products";
 // React.useMemo: from here.
 // Without useMemo, console.log() is called at each render
 // With useMemo, console.log() is not called at each render
-const higestPriceFinder = (data) => {
-  console.log('Calling higestPriceFinder ')
+const highestPriceFinder = (data) => {
+  console.log("Calling highestPriceFinder ");
   return (
     data.reduce((total, item) => {
       const price = item.fields.price;
@@ -21,7 +21,7 @@ const higestPriceFinder = (data) => {
   );
 };
 
-// useEffect is not necesseray to see the optimization problem
+// useEffect is not necessary to see the optimization problem
 // a console.log() or console.count is enough
 
 const Index = () => {
@@ -32,15 +32,17 @@ const Index = () => {
   const [cart, setCart] = useState(0);
 
   // using React.useMemo
-  const mostExpensiveItem =  useMemo(() => higestPriceFinder(products), [products])
-
+  const mostExpensiveItem = useMemo(
+    () => highestPriceFinder(products),
+    [products],
+  );
 
   // const addToCart =  () => {
   //   setCart(cart + 1);
   // };
 
   // useCallback acts on function. If function argument is changed
-  // useCallback recreates the funciton form scratch
+  // useCallback recreates the function form scratch
   const addToCart = useCallback(() => {
     setCart(cart + 1);
   }, [cart]);
@@ -53,7 +55,7 @@ const Index = () => {
       </button>
 
       <h2 style={{ margin: "2rem" }}>cart: {cart}</h2>
-      {/* <h3> Most expensive item price (no useMemo) : ${higestPriceFinder(products)}</h3> */}
+      {/* <h3> Most expensive item price (no useMemo) : ${highestPriceFinder(products)}</h3> */}
       <h3> Most expensive item price (with useMemo) : ${mostExpensiveItem}</h3>
 
       <hr />
@@ -93,7 +95,7 @@ const BigList = memo(({ products, addToCart }) => {
 //--------------------------------------------------------------
 
 // using a React.memo again here is not useful to block re-render
-// Note: the re-render 'origin is not outiside of BigList. It is
+// Note: the re-render 'origin is not outside of BigList. It is
 // the button trigger located inside SingleProduct; so React.memo
 // is not efficient for internal re-render triggering action
 // For this kind of situation, using useCallback is the solution
@@ -117,7 +119,7 @@ const SingleProduct = ({ fields, addToCart }) => {
       <h4>{name}</h4>
       <p>${price}</p>
       <button className="btn" onClick={addToCart}>
-        add tocart
+        add to cart
       </button>
     </article>
   );
