@@ -4,7 +4,7 @@ import axios from "axios";
 const url = "https://icanhazdadjoke.com/";
 // Accept : 'application/json'
 
-const Headers = () => {
+export default function Headers() {
   const [joke, setJoke] = useState("random dad joke");
 
   const fetchDadJoke = async () => {
@@ -30,5 +30,4 @@ const Headers = () => {
       <p className="dad-joke">{joke}</p>
     </section>
   );
-};
-export default Headers;
+}

@@ -6,13 +6,15 @@ const authFetch = axios.create({
 
 authFetch.interceptors.request.use(
   (request) => {
-    request.headers.common["Accept"] = "application/json";
-    console.log(" request sent");
+    console.log("request = ", request);
+    request.headers["Accept"] = "application/json";
+    console.log("request = ", request);
+    console.log(" Request Sent");
     return request;
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 authFetch.interceptors.response.use(
@@ -21,13 +23,13 @@ authFetch.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error.response);
+    // console.log(error.response);
     if (error.response.status === 404) {
-        // do something
-        console.log("Not Found")
+      // do something
+      console.log("Not Found");
     }
-      return Promise.reject(error)
-  }
+    return Promise.reject(error);
+  },
 );
 
 export default authFetch;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 const url = "https://course-api.com/axios-tutorial-post";
 
-const PostRequest = () => {
+export default function PostRequest() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -10,8 +10,8 @@ const PostRequest = () => {
     try {
       e.preventDefault();
       console.log(name, email);
-      const res = await axios.post(url, { name, email }, {});
-      console.log(res.data);
+      const response = await axios.post(url, { name, email }, {});
+      console.log(response.data);
     } catch (error) {
       console.log(error.response);
     }
@@ -54,5 +54,4 @@ const PostRequest = () => {
       </form>
     </section>
   );
-};
-export default PostRequest;
+}
