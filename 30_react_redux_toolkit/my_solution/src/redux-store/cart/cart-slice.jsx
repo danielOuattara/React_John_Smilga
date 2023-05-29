@@ -86,6 +86,7 @@ const cartSlice = createSlice({
       state.totalPrice = totalPrice.toFixed(2);
     },
   },
+  /* ------ 1 */
   // extraReducers: {
   //   [getCartItems.pending]: (state) => {
   //     state.isLoading = true;
@@ -100,6 +101,8 @@ const cartSlice = createSlice({
   //     state.isLoading = false;
   //   },
   // },
+
+  /* ------ 2 */
   extraReducers: (builder) => {
     builder
       .addCase(getCartItems.pending, (state) => {
