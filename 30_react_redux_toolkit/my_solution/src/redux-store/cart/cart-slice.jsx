@@ -32,7 +32,7 @@ export const getCartItems = createAsyncThunk(
   async (name, thunkAPI) => {
     try {
       // console.log("name = ", name);
-      console.log("thunkAPI = ", thunkAPI);
+      // console.log("thunkAPI = ", thunkAPI);
       // console.log("thunkAPI.getState()", thunkAPI.getState());
       // thunkAPI.dispatch(showModal());
       const response = await axios(url);
@@ -109,12 +109,11 @@ const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getCartItems.fulfilled, (state, action) => {
-        console.log(action);
         state.isLoading = false;
         state.cartItems = action.payload;
       })
       .addCase(getCartItems.rejected, (state, action) => {
-        console.log(action);
+        // console.log(action);
         state.isLoading = false;
       });
   },

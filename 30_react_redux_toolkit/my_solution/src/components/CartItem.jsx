@@ -22,14 +22,18 @@ export default function CartItem(props) {
       <div>
         <button
           className="amount-btn"
-          onClick={() => dispatch(updateItemQuantity(props.id, +1))}
+          onClick={() =>
+            dispatch(updateItemQuantity({ id: props.id, value: +1 }))
+          }
         >
           <ChevronUp />
         </button>
         <p className="amount">{props.amount}</p>
         <button
           className="amount-btn"
-          onClick={() => dispatch(updateItemQuantity(props.id, -1))}
+          onClick={() =>
+            dispatch(updateItemQuantity({ id: props.id, value: -1 }))
+          }
         >
           <ChevronDown />
         </button>
