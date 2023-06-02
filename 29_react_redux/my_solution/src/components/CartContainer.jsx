@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import { CartItem } from "./";
-import { clearCart } from "./../redux/cart/cartAction";
+
+import { showModal } from "../redux/modal/modalActions";
 
 function CartContainer(props) {
+  // console.log("props = ", props);
   if (props.cart.cartItems.length === 0) {
     return (
       <section className="cart">
@@ -32,7 +34,7 @@ function CartContainer(props) {
         </div>
         <button
           className="btn clear-btn"
-          onClick={() => props.dispatch(clearCart())}
+          onClick={() => props.dispatch(showModal())}
         >
           clear cart
         </button>
@@ -42,7 +44,10 @@ function CartContainer(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { cart: state.cart };
+  return {
+    cart: state.cart,
+    isModalVisible: state.modal.isModalVisible,
+  };
 };
 
 // const mapDispatchToProps = (dispatch) => {

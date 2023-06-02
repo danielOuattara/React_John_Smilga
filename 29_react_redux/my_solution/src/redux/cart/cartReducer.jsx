@@ -101,7 +101,7 @@ export const cartReducer = (state = initialCartState, action) => {
       return {
         ...state,
         totalItems,
-        totalPrice: totalPrice.toFixed(2),
+        totalPrice: Number(totalPrice.toFixed(2)),
       };
 
     default:

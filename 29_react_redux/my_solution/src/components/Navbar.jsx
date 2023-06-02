@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 
 function Navbar(props) {
-  console.log(props);
   return (
     <nav>
       <div className="nav-center">
