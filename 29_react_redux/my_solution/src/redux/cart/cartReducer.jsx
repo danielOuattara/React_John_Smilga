@@ -30,29 +30,57 @@ export const cartReducer = (state = initialCartState, action) => {
         ),
       };
     //--------------------------------------
-    case UPDATE_QUANTITY:
-      let updatedCartItems = [...state.cartItems];
+    // VERSION 1
+    // case UPDATE_QUANTITY:
+    //   let updatedCartItems = [...state.cartItems];
 
+    //   const itemToUpdate = state.cartItems.find(
+    //     (item) => item.id === action.payload.id,
+    //   );
+    //   if (!itemToUpdate) return state;
+
+    //   const itemToUpdateIndex = state.cartItems.findIndex(
+    //     (item) => item.id === action.payload.id,
+    //   );
+
+    //   if (itemToUpdate.amount === 1 && action.payload.value === -1) {
+    //     updatedCartItems = updatedCartItems.filter(
+    //       (item) => item.id !== action.payload.id,
+    //     );
+    //   } else {
+    //     updatedCartItems[itemToUpdateIndex] = {
+    //       ...updatedCartItems[itemToUpdateIndex],
+    //       amount:
+    //         updatedCartItems[itemToUpdateIndex].amount + action.payload.value,
+    //     };
+    //     itemToUpdate.amount += action.payload.value;
+    //   }
+    //   return {
+    //     ...state,
+    //     cartItems: updatedCartItems,
+    //   };
+
+    //--------------------------------------
+    // VERSION 2
+    case UPDATE_QUANTITY:
       const itemToUpdate = state.cartItems.find(
         (item) => item.id === action.payload.id,
       );
-      if (!itemToUpdate) return;
+      if (!itemToUpdate) return state;
 
-      const itemToUpdateIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id,
-      );
+      let updatedCartItems = [];
 
       if (itemToUpdate.amount === 1 && action.payload.value === -1) {
-        updatedCartItems = updatedCartItems.filter(
+        updatedCartItems = state.cartItems.filter(
           (item) => item.id !== action.payload.id,
         );
       } else {
-        updatedCartItems[itemToUpdateIndex] = {
-          ...updatedCartItems[itemToUpdateIndex],
-          amount:
-            updatedCartItems[itemToUpdateIndex].amount + action.payload.value,
-        };
-        itemToUpdate.amount += action.payload.value;
+        updatedCartItems = state.cartItems.map((item) => {
+          if (item.id === action.payload.id) {
+            item = { ...item, amount: item.amount + action.payload.value };
+          }
+          return item;
+        });
       }
       return {
         ...state,
@@ -70,13 +98,10 @@ export const cartReducer = (state = initialCartState, action) => {
         { totalItems: 0, totalPrice: 0 },
       );
 
-      console.log(totalItems, totalPrice);
-      console.log("hello");
-
       return {
         ...state,
         totalItems,
-        totalPrice,
+        totalPrice: totalPrice.toFixed(2),
       };
 
     default:
