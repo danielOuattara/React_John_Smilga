@@ -1,10 +1,16 @@
 import { connect } from "react-redux";
 import { CartItem } from "./";
+import { useEffect } from "react";
 
 import { showModal } from "../redux/modal/modalActions";
+import { getCartItems } from "./../redux/cart/cartAction";
 
 function CartContainer(props) {
-  // console.log("props = ", props);
+  const { dispatch } = props;
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, [dispatch]);
+
   if (props.cart.cartItems.length === 0) {
     return (
       <section className="cart">
@@ -15,6 +21,7 @@ function CartContainer(props) {
       </section>
     );
   }
+
   return (
     <section className="cart">
       <header>
@@ -32,10 +39,7 @@ function CartContainer(props) {
             total <span>${props.cart.totalPrice}</span>
           </h4>
         </div>
-        <button
-          className="btn clear-btn"
-          onClick={() => props.dispatch(showModal())}
-        >
+        <button className="btn clear-btn" onClick={() => dispatch(showModal())}>
           clear cart
         </button>
       </footer>
@@ -49,6 +53,12 @@ const mapStateToProps = (state) => {
     isModalVisible: state.modal.isModalVisible,
   };
 };
+
+/* 
+ ! IMPORTANT
+ ------------
+ mapDispatchToProps is not required: use directly the "dispatch" in the props
+*/
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {

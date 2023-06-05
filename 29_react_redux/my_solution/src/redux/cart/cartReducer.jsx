@@ -3,12 +3,16 @@ import {
   REMOVE_ITEM,
   UPDATE_QUANTITY,
   CALCULATE_TOTAL,
+  START_FETCH_CART_ITEMS,
+  HANDLE_FETCH_ERROR,
+  HANDLE_FETCH_SUCCESS,
+  HANDLE_ERROR,
 } from "./cartAction.jsx";
-import cartItems from "../../components/cart-items.jsx";
 
 const initialCartState = {
   isLoading: false,
-  cartItems: cartItems,
+  error: "",
+  cartItems: [],
   totalPrice: 0,
   totalItems: 0,
 };
@@ -104,6 +108,37 @@ export const cartReducer = (state = initialCartState, action) => {
         totalPrice: Number(totalPrice.toFixed(2)),
       };
 
+    //--------------------------------------
+    case START_FETCH_CART_ITEMS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    //--------------------------------------
+    case HANDLE_FETCH_ERROR:
+      return {
+        ...state,
+        error: action.payload.message,
+        isLoading: false,
+      };
+
+    //--------------------------------------
+    case HANDLE_FETCH_SUCCESS:
+      return {
+        ...state,
+        cartItems: [...action.payload.data],
+        error: "",
+        isLoading: false,
+      };
+
+    //--------------------------------------
+    case HANDLE_ERROR:
+      return {
+        ...state,
+        error: "Something went wrong, try again later !",
+        isLoading: false,
+      };
     default:
       return state;
   }
