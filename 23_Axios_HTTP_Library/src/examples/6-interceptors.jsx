@@ -7,7 +7,7 @@ export default function Interceptors() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await authFetch("/react-store-productsAA");
+        const response = await authFetch("/react-store-products");
         console.log(response);
       } catch (error) {
         // console.log("error = ", error);

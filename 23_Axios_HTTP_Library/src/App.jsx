@@ -1,16 +1,16 @@
 import Title from "./components/Title";
 import {
-  /* FirstRequest, */
-  /* Headers, */
-  /* PostRequest, */
-  /* GlobalInstance, */
-  /* CustomInstance, */
+  // FirstRequest,
+  // Headers,
+  // PostRequest,
+  // GlobalInstance,
+  // CustomInstance,
   Interceptors,
 } from "./examples";
 
-import "./axios/global";
+// import "./axios/global";
 
-function App() {
+export default function App() {
   return (
     <main>
       <Title />
@@ -23,5 +23,3 @@ function App() {
     </main>
   );
 }
-
-export default App;

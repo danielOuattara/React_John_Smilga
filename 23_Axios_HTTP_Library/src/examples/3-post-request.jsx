@@ -1,15 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-const url = "https://course-api.com/axios-tutorial-post";
+const url = "https://www.course-api.com/axios-tutorial-post";
 
 export default function PostRequest() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(name, email);
     try {
-      e.preventDefault();
-      console.log(name, email);
       const response = await axios.post(url, { name, email }, {});
       console.log(response.data);
     } catch (error) {
