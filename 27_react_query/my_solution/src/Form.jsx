@@ -1,3 +1,45 @@
+/*  useMutation query basic 
+---------------------------- */
+
+// import { useState } from "react";
+// import { useMutation } from "@tanstack/react-query";
+// import customFetch from "./axios/util";
+
+// export default function Form() {
+//   const [newItemName, setNewItemName] = useState("");
+
+//   const result = useMutation({
+//     mutationFn: (taskTitle) => customFetch.post("/", { title: taskTitle }),
+//   });
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setNewItemName("");
+//   };
+
+//   console.log("result = ", result);
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <h4>task bud</h4>
+//       <div className="form-control">
+//         <input
+//           type="text "
+//           className="form-input"
+//           value={newItemName}
+//           onChange={(event) => setNewItemName(event.target.value)}
+//         />
+//         <button type="submit" className="btn" disabled={result.isLoading}>
+//           add task
+//         </button>
+//       </div>
+//     </form>
+//   );
+
+// }
+/*  useMutation query: destructured response
+------------------------------------------------ */
+
 // import { useState } from "react";
 // import { useMutation } from "@tanstack/react-query";
 // import customFetch from "./axios/util";
@@ -87,7 +129,7 @@ import { useCreateTask } from "./ReactQueyHooks";
 
 export default function Form() {
   const [newItemName, setNewItemName] = useState("");
-  const { createTask, isLoading } = useCreateTask(newItemName);
+  const { createTask, isCreating } = useCreateTask(newItemName);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,7 +148,7 @@ export default function Form() {
           value={newItemName}
           onChange={(event) => setNewItemName(event.target.value)}
         />
-        <button type="submit" className="btn" disabled={isLoading}>
+        <button type="submit" className="btn" disabled={isCreating}>
           add task
         </button>
       </div>

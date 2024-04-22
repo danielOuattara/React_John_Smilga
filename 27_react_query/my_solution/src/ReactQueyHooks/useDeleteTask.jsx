@@ -6,7 +6,7 @@ export default function useDeleteTask() {
   const queryClient = useQueryClient();
 
   //---------------------------------------------------
-  const { mutate: deleteTask, isLoading } = useMutation({
+  const { mutate: deleteTask, isPending: isDeleting } = useMutation({
     mutationFn: (taskId) => {
       return customFetch.delete(`/${taskId}`);
     },
@@ -19,5 +19,5 @@ export default function useDeleteTask() {
     },
   });
 
-  return { deleteTask, isLoading };
+  return { deleteTask, isDeleting };
 }

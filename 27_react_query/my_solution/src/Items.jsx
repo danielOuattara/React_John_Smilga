@@ -12,7 +12,7 @@
 
 //---------------------------------------------------------------
 
-/* using react-query 
+/* using react-query: v1 
 ----------------------*/
 
 // import SingleItem from "./SingleItem";
@@ -25,7 +25,7 @@
 //     queryFn: () => customFetch.get("/"),
 //   });
 
-//   if (queryResponse.isLoading) {
+//   if (queryResponse.isPending) {
 //     return <h1>Loading...</h1>;
 //   }
 //   return (
@@ -37,8 +37,8 @@
 //   );
 // }
 
-/* using react-query 
-----------------------*/
+/* using react-query: v2 
+-------------------------*/
 
 // import SingleItem from "./SingleItem";
 // import { useQuery } from "@tanstack/react-query";
@@ -65,11 +65,11 @@
 //   );
 // }
 
-/* using react-query: destructuring query response 
+/* using react-query: v3: destructuring query response 
 ---------------------------------------------------*/
 
 // import SingleItem from "./SingleItem";
-// import { isError, useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 // import customFetch from "./axios/util";
 
 // export default function Items() {

@@ -7,7 +7,7 @@ export default function useCreateTask(taskTitle) {
 
   const {
     mutate: createTask,
-    isLoading,
+    isPending: isCreating,
     isError,
   } = useMutation({
     mutationFn: () => customFetch.post("/", { title: taskTitle }),
@@ -20,5 +20,5 @@ export default function useCreateTask(taskTitle) {
     },
   });
 
-  return { createTask, isLoading, isError };
+  return { createTask, isCreating, isError };
 }

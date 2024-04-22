@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 export default function useEditTask() {
   const queryClient = useQueryClient();
 
-  const { mutate: editTask } = useMutation({
-    mutationFn: ({ taskId, updatedDoneStatus }) => {
-      return customFetch.patch(`/${taskId}`, { isDone: updatedDoneStatus });
+  const { mutate: editTask, isPending: isEditing } = useMutation({
+    mutationFn: ({ taskId, isDone }) => {
+      return customFetch.patch(`/${taskId}`, { isDone });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
@@ -18,5 +18,5 @@ export default function useEditTask() {
     },
   });
 
-  return { editTask };
+  return { editTask, isEditing };
 }
