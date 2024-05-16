@@ -1,18 +1,18 @@
 # Redux Toolkit
 
-#### React Course
+## React Course
 
 [My React Course](https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
 
-#### Support
+## Support
 
 Find the App Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
 
-#### Docs
+## Docs
 
 [Redux Toolkit Docs](https://redux-toolkit.js.org/introduction/getting-started)
 
-#### Install Template
+## Install Template
 
 ```sh
 npx create-react-app my-app --template redux
@@ -24,13 +24,13 @@ npx create-react-app my-app --template redux
 npx create-react-app@latest my-app --template redux
 ```
 
-#### Existing App
+## Existing App
 
 ```sh
 npm install @reduxjs/toolkit react-redux
 ```
 
-#### @reduxjs/toolkit
+## @reduxjs/toolkit
 
 consists of few libraries
 
@@ -39,16 +39,16 @@ consists of few libraries
 - redux-thunk (handles async actions)
 - reselect (simplifies reducer functions)
 
-#### Extra packages
+## Extra packages
 
 - redux devtools
 - combine reducers
 
-#### react-redux
+## react-redux
 
 connects our app to redux
 
-#### Setup Store
+## Setup Store
 
 - create store.js
 
@@ -60,7 +60,7 @@ export const store = configureStore({
 });
 ```
 
-#### Setup Provider
+## Setup Provider
 
 - index.js
 
@@ -83,7 +83,7 @@ ReactDOM.render(
 );
 ```
 
-#### Setup Cart Slice
+## Setup Cart Slice
 
 - application feature
 - create features folder/cart
@@ -122,11 +122,11 @@ export const store = configureStore({
 });
 ```
 
-#### Redux DevTools
+## Redux DevTools
 
 - extension
 
-#### Access store value
+## Access store value
 
 - create components/Navbar.js
 
@@ -154,7 +154,7 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-#### Hero Icons
+## Hero Icons
 
 - [Hero Icons](https://heroicons.com/)
 
@@ -165,7 +165,7 @@ nav svg {
 }
 ```
 
-#### Setup Cart
+## Setup Cart
 
 - cartSlice.js
 
@@ -266,7 +266,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
 export default CartItem;
 ```
 
-#### First Reducer
+## First Reducer
 
 - cartSlice.js
 - Immer library
@@ -320,7 +320,7 @@ const CartContainer = () => {
 export default CartContainer;
 ```
 
-#### Remove, Increase, Decrease
+## Remove, Increase, Decrease
 
 - cartSlice.js
 
@@ -461,7 +461,7 @@ function App() {
 export default App;
 ```
 
-#### Modal
+## Modal
 
 - create components/Modal.js
 
@@ -498,7 +498,7 @@ return (
 );
 ```
 
-#### modal slice
+## modal slice
 
 - create features/modal/modalSlice.js
 
@@ -539,7 +539,7 @@ return (
 );
 ```
 
-#### toggle modal
+## toggle modal
 
 - CartContainer.js
 
@@ -600,7 +600,7 @@ const Modal = () => {
 export default Modal;
 ```
 
-#### async functionality with createAsyncThunk
+## async functionality with createAsyncThunk
 
 - [Course API](https://course-api.com/)
 - <https://course-api.com/react-useReducer-cart-project>
@@ -672,7 +672,7 @@ function App() {
 export default App;
 ```
 
-#### Options
+## Options
 
 ```sh
 npm install axios
@@ -699,7 +699,7 @@ export const getCartItems = createAsyncThunk(
 );
 ```
 
-#### The extraReducers "builder callback" notation
+## The extraReducers "builder callback" notation
 
 cart/cartSlice
 

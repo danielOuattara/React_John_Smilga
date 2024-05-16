@@ -1,19 +1,19 @@
 import { ChevronDown, ChevronUp } from "./";
-import { removeItem, updateItemQuantity } from "../redux-store/cart/cart-slice";
+import { cartActions } from "../redux-store/cart/cart-slice";
 import { useDispatch } from "react-redux";
 
-export default function CartItem(props) {
+export default function CartItem({ id, img, title, price, amount }) {
   const dispatch = useDispatch();
   return (
     <article className="cart-item">
-      <img src={props.img} alt={props.title} />
+      <img src={img} alt={title} />
 
       <div>
-        <h4>{props.title}</h4>
-        <h4 className="item-price">${props.price}</h4>
+        <h4>{title}</h4>
+        <h4 className="item-price">${price}</h4>
         <button
           className="remove-btn"
-          onClick={() => dispatch(removeItem({ id: props.id }))}
+          onClick={() => dispatch(cartActions.removeItem(id))}
         >
           remove
         </button>
@@ -23,16 +23,16 @@ export default function CartItem(props) {
         <button
           className="amount-btn"
           onClick={() =>
-            dispatch(updateItemQuantity({ id: props.id, value: +1 }))
+            dispatch(cartActions.updateItemQuantity({ id, value: +1 }))
           }
         >
           <ChevronUp />
         </button>
-        <p className="amount">{props.amount}</p>
+        <p className="amount">{amount}</p>
         <button
           className="amount-btn"
           onClick={() =>
-            dispatch(updateItemQuantity({ id: props.id, value: -1 }))
+            dispatch(cartActions.updateItemQuantity({ id, value: -1 }))
           }
         >
           <ChevronDown />

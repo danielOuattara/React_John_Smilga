@@ -1,24 +1,16 @@
-import ReactDOM from "react-dom";
 import { Navbar, CartContainer, Modal } from "./components";
 import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "./redux-store/cart/cart-slice";
 import { useEffect } from "react";
-import { calculateTotals, getCartItems } from "./redux-store/cart/cart-slice";
+import ReactDOM from "react-dom";
 
 function App() {
-  const { isModalVisible } = useSelector((state) => state.modal);
   const { cartItems, isLoading } = useSelector((state) => state.cart);
+  const { isModalVisible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getCartItems());
-  // }, [dispatch]);
-
   useEffect(() => {
-    dispatch(getCartItems("random"));
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(calculateTotals());
+    dispatch(cartActions.calculateTotals());
   }, [cartItems, dispatch]);
 
   if (isLoading) {
@@ -28,12 +20,13 @@ function App() {
       </div>
     );
   }
+
   return (
     <main>
-      {isModalVisible &&
-        ReactDOM.createPortal(<Modal />, document.getElementById("modal"))}
       <Navbar />
       <CartContainer />
+      {isModalVisible &&
+        ReactDOM.createPortal(<Modal />, document.getElementById("modal"))}
     </main>
   );
 }

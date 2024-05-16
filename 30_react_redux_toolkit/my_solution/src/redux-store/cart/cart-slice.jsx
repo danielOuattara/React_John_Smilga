@@ -1,47 +1,12 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { showModal } from "../modal/modal-slice";
-const url = "https://course-api.com/react-useReducer-cart-project";
+import { createSlice } from "@reduxjs/toolkit";
+import cartItems from "../../cartItems";
 
 const initialCartState = {
   isLoading: false,
-  cartItems: [],
+  cartItems: cartItems,
   totalPrice: 0,
   totalItems: 0,
 };
-// --> 1
-// export const getCartItems = createAsyncThunk("cart/getCartItems", () => {
-//   return fetch(url)
-//     .then((response) => response.json())
-//     .catch((error) => console.log(error));
-// });
-
-// --> 2
-// export const getCartItems = createAsyncThunk("cart/getCartItems", async () => {
-//   try {
-//     const response = await fetch(url);
-//     return await response.json();
-//   } catch (error) {
-//     return console.log(error);
-//   }
-// });
-
-// --> 3
-export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
-  async (name, thunkAPI) => {
-    try {
-      // console.log("name = ", name);
-      // console.log("thunkAPI = ", thunkAPI);
-      // console.log("thunkAPI.getState()", thunkAPI.getState());
-      // thunkAPI.dispatch(showModal());
-      const response = await axios(url);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("something went wrong");
-    }
-  },
-);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -50,11 +15,13 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.cartItems = [];
     },
+
     removeItem: (state, action) => {
       state.cartItems = state.cartItems.filter(
-        (item) => item.id !== action.payload.id,
+        (item) => item.id !== action.payload,
       );
     },
+
     updateItemQuantity: (state, action) => {
       const itemToUpdateQuantity = state.cartItems.find(
         (item) => item.id === action.payload.id,
@@ -86,40 +53,10 @@ const cartSlice = createSlice({
       state.totalPrice = totalPrice.toFixed(2);
     },
   },
-  /* ------ 1 */
-  // extraReducers: {
-  //   [getCartItems.pending]: (state) => {
-  //     state.isLoading = true;
-  //   },
-  //   [getCartItems.fulfilled]: (state, action) => {
-  //     console.log("action = ", action);
-  //     state.isLoading = false;
-  //     state.cartItems = action.payload;
-  //   },
-  //   [getCartItems.rejected]: (state, action) => {
-  //     console.log("action = ", action);
-  //     state.isLoading = false;
-  //   },
-  // },
-
-  /* ------ 2 */
-  extraReducers: (builder) => {
-    builder
-      .addCase(getCartItems.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getCartItems.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.cartItems = action.payload;
-      })
-      .addCase(getCartItems.rejected, (state, action) => {
-        // console.log(action);
-        state.isLoading = false;
-      });
-  },
 });
 
-export const { clearCart, removeItem, updateItemQuantity, calculateTotals } =
-  cartSlice.actions;
+// console.log("cartSlice = ", cartSlice);
+
+export const cartActions = cartSlice.actions;
 
 export default cartSlice.reducer;
