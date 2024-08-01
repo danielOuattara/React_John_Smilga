@@ -1,6 +1,8 @@
 "use server";
 
 import { readFile, writeFile } from "fs/promises";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 // export const createUser = async (formData: FormData) => {
 //   const firstName = formData.get("firstName") as string;
@@ -15,9 +17,34 @@ import { readFile, writeFile } from "fs/promises";
 export const createUser = async (formData: FormData) => {
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
-  const newUser: User = { firstName, lastName, id: Date.now().toString() };
+  const newUser: User = {
+    firstName,
+    lastName,
+    id: Date.now().toString(),
+  };
   await saveUser(newUser);
+  revalidatePath("/actions");
+  //  redirect("/");
 };
+
+//------------------------------------------------------- OK!
+// export const createUser = async (formData: FormData) => {
+//   try {
+//     const firstName = formData.get("firstName") as string;
+//     const lastName = formData.get("lastName") as string;
+//     const newUser: User = {
+//       firstName,
+//       lastName,
+//       id: Date.now().toString(),
+//     };
+//     await saveUser(newUser);
+//     revalidatePath("/actions");
+//   } catch (error) {
+//     console.log(error);
+//   } finally {
+//     redirect("/");
+//   }
+// };
 
 //---
 
