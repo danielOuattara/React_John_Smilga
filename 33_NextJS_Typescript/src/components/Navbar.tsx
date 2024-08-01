@@ -7,6 +7,7 @@ export default function Navbar() {
       <Link href="/counter">Counter</Link>
       <Link href="/tours">Tours</Link>
       <Link href="/actions">Actions</Link>
+      <Link href="/images">Images</Link>
     </nav>
   );
 }

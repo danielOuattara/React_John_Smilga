@@ -4,6 +4,8 @@ type TypeTourPageProp = {
   };
 };
 
+// console.log(beverage);
+
 export default function TourPage({ params }: TypeTourPageProp) {
   return (
     <>

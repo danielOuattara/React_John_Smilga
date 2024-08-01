@@ -1,5 +1,5 @@
 type Tour = {
-  tourId: string;
+  id: string;
   name: string;
   info: string;
   image: string;
