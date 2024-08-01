@@ -1,4 +1,5 @@
-import { fetchUsers } from "@/utils/actions";
+// import { fetchUsers } from "@/utils/actions";
+import { fetchUsers } from "@/utils/actions-route-handlers";
 import DeleteButton from "./DeleteButton";
 
 export default async function UserList() {
