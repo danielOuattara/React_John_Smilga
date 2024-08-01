@@ -1,3 +1,7 @@
+"use client";
+
+import { createUser } from "@/utils/actions";
+
 export default function Form() {
   return (
     <form
@@ -28,8 +32,3 @@ export default function Form() {
     </form>
   );
 }
-
-const createUser = async () => {
-  "use server";
-  console.log("creating user....");
-};

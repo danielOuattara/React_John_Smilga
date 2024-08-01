@@ -5,3 +5,9 @@ type Tour = {
   image: string;
   price: string;
 };
+
+type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+};
