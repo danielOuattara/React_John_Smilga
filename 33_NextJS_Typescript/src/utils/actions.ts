@@ -2,7 +2,8 @@
 
 import { readFile, writeFile } from "fs/promises";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { resolve } from "path";
+// import { redirect } from "next/navigation";
 
 // export const createUser = async (formData: FormData) => {
 //   const firstName = formData.get("firstName") as string;
@@ -13,8 +14,12 @@ import { redirect } from "next/navigation";
 // };
 
 //--------------------------------------------
+type FormState = string | undefined;
 
-export const createUser = async (formData: FormData) => {
+export const createUser = async (
+  prevState: FormState,
+  formData: FormData,
+): Promise<FormState> => {
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
   const newUser: User = {
@@ -22,9 +27,18 @@ export const createUser = async (formData: FormData) => {
     lastName,
     id: Date.now().toString(),
   };
-  await saveUser(newUser);
-  revalidatePath("/actions");
-  //  redirect("/");
+
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  try {
+    // throw new Error("Error"); / for testing
+    await saveUser(newUser);
+    revalidatePath("/actions");
+    // --> throw Error();
+    return "user created successfully...";
+  } catch (error) {
+    console.error(error);
+    return "failed to create user...";
+  }
 };
 
 //------------------------------------------------------- OK!
