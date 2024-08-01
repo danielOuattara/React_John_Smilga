@@ -20,7 +20,7 @@ export default function Form() {
   return (
     <form
       action={formAction}
-      className="max-w-lg flex flex-col gap-y-4 shadow rounded p-8"
+      className="m-4 max-w-lg flex flex-col gap-y-4 shadow rounded p-8"
     >
       {showMessage && message && <p>{message}</p>}
       <h2 className="text-2xl capitalize mb-4">create user</h2>
